@@ -16,15 +16,24 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="books")
 
-    class Meta:
-        permissions = [
-            ("can_add_book", "Can add a new book"),
-            ("can_change_book", "Can edit a book"),
-            ("can_delete_book", "Can delete a book"),
-        ]
-
     def __str__(self):
         return self.title
+
+
+
+# class Book(models.Model):
+#     title = models.CharField(max_length=200)
+#     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="books")
+
+#     class Meta:
+#         permissions = [
+#             ("can_add_book", "Can add a new book"),
+#             ("can_change_book", "Can edit a book"),
+#             ("can_delete_book", "Can delete a book"),
+#         ]
+
+#     def __str__(self):
+#         return self.title
 
 
 class Library(models.Model):
